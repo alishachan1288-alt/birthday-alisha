@@ -151,6 +151,7 @@
             box-shadow:
                 0 10px 30px rgba(80, 0, 100, 0.3);
         }
+        
 
         .details {
             margin-top: 25px;
@@ -299,6 +300,149 @@
         <div class="age">
             14
         </div>
+        <!-- COUNTDOWN HARI H -->
+<div class="countdown-section">
+
+    <h2>🎀 Menuju Hari H 🎀</h2>
+
+    <div class="countdown">
+
+        <div class="count-box">
+            <span id="days">0</span>
+            <small>Hari</small>
+        </div>
+
+        <div class="count-box">
+            <span id="hours">0</span>
+            <small>Jam</small>
+        </div>
+
+        <div class="count-box">
+            <span id="minutes">0</span>
+            <small>Menit</small>
+        </div>
+
+        <div class="count-box">
+            <span id="seconds">0</span>
+            <small>Detik</small>
+        </div>
+    </div>
+
+    <p id="countdown-message"></p>
+
+</div>
+
+<style>
+/* COUNTDOWN */
+.countdown-section {
+    margin-top: 30px;
+}
+
+.countdown-section h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.count-box {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.20);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 20px rgba(80, 0, 100, 0.2);
+}
+
+.count-box span {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.count-box small {
+    font-size: 11px;
+    margin-top: 3px;
+    opacity: 0.85;
+}
+
+#countdown-message {
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}</style>
+<script>
+// COUNTDOWN MENUJU HARI H
+const birthdayDate = new Date("December 12, 2026 00:00:00").getTime();
+
+const countdown = setInterval(function () {
+
+    const now = new Date().getTime();
+
+    const distance = birthdayDate - now;
+
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").innerHTML =
+        days;
+
+    document.getElementById("hours").innerHTML =
+        hours;
+
+    document.getElementById("minutes").innerHTML =
+        minutes;
+
+    document.getElementById("seconds").innerHTML =
+        seconds;
+
+
+    if (distance < 0) {
+
+        clearInterval(countdown);
+
+        document.getElementById("days").innerHTML = "🎂";
+        document.getElementById("hours").innerHTML = "💜";
+        document.getElementById("minutes").innerHTML = "🎉";
+        document.getElementById("seconds").innerHTML = "💗";
+
+        document.getElementById("countdown-message").innerHTML =
+            "✨ Hari ini adalah Hari H! Selamat ulang tahun Alisha! 🎂💜";
+
+    }
+
+}, 1000);</script>
 
         <div class="details">
 
